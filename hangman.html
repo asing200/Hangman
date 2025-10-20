@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="hangman.js"></script>
+    <script src="hangman.js">
+    </script>
     <link rel="stylesheet" href="hangman.css">
 </head>
 <body>
@@ -13,12 +14,16 @@
 
         
     <div>
-        <input type="text" size="1">
-        <button>Guess</button>
+        <input id="guess" type="text" size="1" maxlength="1">
+        <button onclick="guess();">Guess</button>
+    </div>
+
+    <div id="guesses">
+
     </div>
 
     <div id="newgamearea">
-        <button>New Game</button>
+        <button onclick="newGame();">New Game</button>
     </div>
 
 </body>
