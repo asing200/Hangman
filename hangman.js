@@ -21,19 +21,25 @@ function guessLetter(){
     }
     var input = document.getElementById("guess");
     var letter = input.value;
+
+    //guess the same letter
     if(guesses.indexOf(letter)>=0)
     {
+        alert("You already guessed that letter, try again.");
         return;
     }
+
     if(word.indexOf(letter) < 0 ){
-       
        //added this in class: console.log("Empty cluestring:" );
         guess_count--;
     }
+
     guesses+=letter;
+    input.value = ""; //clear the input field
     updatePage();
-    input.value = "";
+    
 } 
+
 function updatePage(){
      var clueString = "";
      for(var i = 0; i <word.length; i++){
@@ -45,6 +51,14 @@ function updatePage(){
         else
             clueString+= "_ ";
         }
+         //win or lose: gives an alert if you 
+    if (guess_count <= 0) {
+        gameOver = true;
+        alert("You lost! The word was: " + word);
+    } else if (clueString.indexOf("_") < 0) {
+        gameOver = true;
+        alert("Congratulations! You've guessed the word: " + word);
+    }
     
     //update the string 
     var clue = document.getElementById("clue");
@@ -54,9 +68,9 @@ function updatePage(){
     var guessArea = document.getElementById("guesses");
     guessArea.innerHTML = "Guessed Letters: " + guesses;
 
-
-    
     //update the image
     var image = document.getElementById("hangmanImage");
     image.src="images/hangman" + guess_count + ".gif";
+
+   
 }    
