@@ -72,5 +72,4 @@ function updatePage(){
     var image = document.getElementById("hangmanImage");
     image.src="images/hangman" + guess_count + ".gif";
 
-   
 }    
