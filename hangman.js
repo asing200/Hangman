@@ -26,14 +26,14 @@ function guessLetter(){
 
     //preventing guessing before the word is chosen
     if (word === "") {
-        alert("Please start a new game first!");
+        alert("Press new game first!");
         return;
     }
 
     //guess the same letter
     if(guesses.indexOf(letter)>=0)
     {
-        
+        input.value = "";
         alert("You already guessed that letter, try again.");
         return;
     }
@@ -60,7 +60,7 @@ function updatePage(){
             clueString+= "_ ";
         }   
      //win or lose: gives an alert 
-    if (guess_count <= 0) {
+    if (guess_count <= 0) { //player has no more guesses
     gameOver = true;
     alert("You lost! The word was: " + word);
     } else if (clueString.indexOf("_") < 0) {
