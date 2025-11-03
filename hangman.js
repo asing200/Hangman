@@ -14,6 +14,8 @@ function newGame(){
     gameOver = false;
     updatePage();
 }
+
+//gives an update when you try to guess after the game is over
 function guessLetter(){
     if (gameOver){
         alert("Game Over");
@@ -50,9 +52,9 @@ function updatePage(){
         }
         else
             clueString+= "_ ";
-        }
-         //win or lose: gives an alert if you 
-    if (guess_count <= 0) {
+        }   
+      //win or lose: gives an alert 
+      if (guess_count <= 0) {
         gameOver = true;
         alert("You lost! The word was: " + word);
     } else if (clueString.indexOf("_") < 0) {
@@ -72,4 +74,5 @@ function updatePage(){
     var image = document.getElementById("hangmanImage");
     image.src="images/hangman" + guess_count + ".gif";
 
+    
 }    
