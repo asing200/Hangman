@@ -24,15 +24,21 @@ function guessLetter(){
     var input = document.getElementById("guess");
     var letter = input.value;
 
+    //preventing guessing before the word is chosen
+    if (word === "") {
+        alert("Please start a new game first!");
+        return;
+    }
+
     //guess the same letter
     if(guesses.indexOf(letter)>=0)
     {
+        
         alert("You already guessed that letter, try again.");
         return;
     }
 
     if(word.indexOf(letter) < 0 ){
-       //added this in class: console.log("Empty cluestring:" );
         guess_count--;
     }
 
@@ -53,15 +59,15 @@ function updatePage(){
         else
             clueString+= "_ ";
         }   
-      //win or lose: gives an alert 
-      if (guess_count <= 0) {
-        gameOver = true;
-        alert("You lost! The word was: " + word);
+     //win or lose: gives an alert 
+    if (guess_count <= 0) {
+    gameOver = true;
+    alert("You lost! The word was: " + word);
     } else if (clueString.indexOf("_") < 0) {
-        gameOver = true;
-        alert("Congratulations! You've guessed the word: " + word);
-    }
-    
+    gameOver = true;
+    alert("Congratulations! You've guessed the word: " + word);
+} 
+
     //update the string 
     var clue = document.getElementById("clue");
     clue.innerHTML = clueString;
